@@ -22,6 +22,7 @@ import tensorflow.compat.v2 as tf
 
 import keras
 from keras.optimizers import optimizer_v1
+from keras.optimizers.optimizer_experimental import sgd
 from keras.testing_infra import test_combinations
 from keras.testing_infra import test_utils
 from keras.utils import np_utils
@@ -125,6 +126,7 @@ class KerasOptimizersTest(test_combinations.TestCase):
     def test_sgd(self):
         with self.cached_session():
             self._test_optimizer(optimizer_v1.SGD())
+        self._test_optimizer(sgd.SGD())
 
     def test_momentum(self):
         with self.cached_session():
